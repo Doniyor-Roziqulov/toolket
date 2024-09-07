@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header {
+    display: flex;
+    gap: 20px;
+    font-family: sans-serif;
+    text-decoration-line: none;
+    color: black;
+}

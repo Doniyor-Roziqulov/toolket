@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./CreateUser.css";
+import { useDispatch } from "react-redux";
+import { addUsers } from "../redux/user-slice";
 
 function CreateUser() {
     const [name, setName] = useState("");
     const [profession, setProfession] = useState("");
     const [age, setAge] = useState("");
     const [gender, setGender] = useState("");
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,8 +19,11 @@ function CreateUser() {
             age: +age,
             gender,
         };
+        dispatch(addUsers(newUser));
+
         console.log(newUser);
     };
+
     return (
         <div className="create__user">
             <h2>Create User</h2>
@@ -59,7 +65,6 @@ function CreateUser() {
                 </select>
                 <button type="submit">Create</button>
             </form>
-            <div></div>
         </div>
     );
 }
