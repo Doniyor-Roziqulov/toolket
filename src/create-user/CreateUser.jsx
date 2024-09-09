@@ -20,8 +20,10 @@ function CreateUser() {
             gender,
         };
         dispatch(addUsers(newUser));
-
-        console.log(newUser);
+        setName("");
+        setGender("");
+        setAge("");
+        setProfession("");
     };
 
     return (
