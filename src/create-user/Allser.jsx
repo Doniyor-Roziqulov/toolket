@@ -1,12 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeUsers } from "../redux/user-slice";
 import "./User.css";
 import male from "../assets/male-avatar-boy-face-man-user-9.svg";
 import female from "../assets/female-avatar-girl-face-woman-user-2.svg";
 
 const Allser = () => {
     let users = useSelector((state) => state.users.value);
-    console.log(users);
+    const dispatch = useDispatch();
 
     return (
         <div className="users__wrapper">
@@ -21,7 +22,9 @@ const Allser = () => {
                         <h2>{user.name}</h2>
                         <p>{user.profession}</p>
                         <p>{user.age} years old</p>
-                        <button>Remove</button>
+                        <button onClick={() => dispatch(removeUsers(user))}>
+                            Remove
+                        </button>
                     </div>
                 </div>
             ))}
